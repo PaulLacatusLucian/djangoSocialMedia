@@ -1,7 +1,10 @@
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import PasswordResetConfirmView
 
 
 def register(request):
@@ -37,3 +40,21 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+
+# def password_reset_confirm(request):
+#     if request.method == 'POST':
+#         form = PasswordChangeForm(request.user, request.POST)
+#         if form.is_valid():
+#             form.save()
+#             update_session_auth_hash(request, form.user)
+#             messages.success(request, 'Your password has been updated!')
+#             return redirect('login')
+#     else:
+#         form = PasswordChangeForm(request.user)
+#
+#     context = {
+#         'form': form,
+#     }
+#
+#     return render(request, 'users/password_reset_confirm.html', context)
