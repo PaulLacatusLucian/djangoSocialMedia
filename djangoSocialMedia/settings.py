@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -71,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'djangoSocialMedia.wsgi.application'
 
+# DATABASE["default"]
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -80,6 +82,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# postgres://django_db_render_user:qyDpERMG67d1BTrhlSlAhRjRNzb7uYeI@dpg-cm1ksuocmk4c73a9ndpg-a.frankfurt-postgres.render.com/django_db_render
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
